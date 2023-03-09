@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import {Center, OrbitControls, Preload} from '@react-three/drei'
+import {Center, OrbitControls, OrthographicCamera, Preload, PresentationControls} from '@react-three/drei'
 
 export default function Scene({ children, ...props }) {
   // Everything defined in here will persist between route changes, only children are swapped
@@ -10,6 +10,7 @@ export default function Scene({ children, ...props }) {
       <hemisphereLight intensity={0.75} />
         {children}
       <Preload all />
+      <PresentationControls polar={1/2 * Math.PI} />
       <OrbitControls />
     </Canvas>
   )
